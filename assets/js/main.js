@@ -136,9 +136,9 @@ const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moo
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'ri-moon-clear-line' ? 'add' : 'remove'](iconTheme)
+    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[selectedIcon === 'ri-moon-clear-line' ? 'add' : 'remove'](iconTheme)
 }
 
 // Activate / deactivate the theme manually with the button
@@ -152,13 +152,35 @@ themeButton.addEventListener('click', () => {
 })
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () =>{
+const scrollHeader = () => {
     const header = document.getElementById('header')
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
-    this.scrollY >= 50 ? header.classList.add('bg-header') 
-                       : header.classList.remove('bg-header')
+    this.scrollY >= 50 ? header.classList.add('bg-header')
+        : header.classList.remove('bg-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    // reset: true 
+})
+sr.reveal(`.home__data, .projects__container, .testimonial__container, .footer__container`)
+sr.reveal(`.home__info div`, {
+    delay: 600,
+    origin: 'bottom',
+    interval: 100
+})
+sr.reveal(`.skills__content:nth-child(1), .contact__content:nth-child(1)`, {
+    origin: 'left',
+})
+sr.reveal(`.skills__content:nth-child(2), .contact__content:nth-child(2)`, {
+    origin: 'right',
+})
+sr.reveal(`.qualification__content, .services__card`, {
+    interval: 100
+})
