@@ -80,6 +80,9 @@ const sendEmail = (e) => {
                 contactMessage.classList.add('color-blue')
                 contactMessage.textContent = 'Mensagem enviada'
                 setTimeout(() => {
+                    contactName.textContent = ''
+                    contactEmail.textContent = ''
+                    contactProject.textContent = ''
                     contactMessage.textContent = ''
                 }, 5000)
             }, (error) => {
