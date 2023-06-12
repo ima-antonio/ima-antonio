@@ -84,7 +84,7 @@ const sendEmail = (e) => {
                     contactEmail.textContent = ''
                     contactProject.textContent = ''
                     contactMessage.textContent = ''
-                }, 5000)
+                }, 500)
             }, (error) => {
                 contactMessage.classList.remove('color-green')
                 contactMessage.classList.add('color-red')
